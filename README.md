@@ -9,7 +9,7 @@ Nesse to-do list é possível:
 Quando um usuário **marcar** uma tarefa como completa:
 * O sistema exibe para o usuário uma bela frase aleatória de "Parabéns" (invente qualquer 5 frases aleatórias) de uma cor hexadecimal aleatória dessa lista [#7B68EE, #6A5ACD, #800000, #2F4F4F].
 
-* Além disso, também tem que enviar um evento para o sistema de tracking. Por simplicidade, o sistema de tracking é só uma tabelinha de eventos que tem um tipo de evento e um campo json em que você manda dados relevantes. No caso, guardar um tipo 'Congratulations', enquanto que e a cor e a frase aleatória de "Parabéns" nesse campo json.
+* Além disso, também tem que enviar um evento para o sistema de tracking. Por simplicidade, o sistema de tracking é só uma tabelinha de eventos que tem um tipo de evento e um campo json em que você manda dados relevantes. No caso, guardar um tipo 'Congratulations', enquanto que e a cor e a frase aleatória de "Parabéns" são guardadas nesse campo json.
 
 Quando um usuário **desmarca** a tarefa como completa:
 * O sistema exibe para o usuário uma triste frase aleatória de "Poxa vida..." (invente qualquer 5 frases aleatórias) de uma cor hexadecimal aleatória da mesma lista [#7B68EE, #6A5ACD, #800000, #2F4F4F].
