@@ -1,10 +1,14 @@
-# App Rails de To Do
+## Build Rails API:
 
-Nesse to-do list é possível:
-* Adicionar uma tarefa (que é simplesmente um campo de texto)
-* Editar uma tarefa
-* Remover uma tarefa
-* Marcar uma tarefa como completa
+No escopo do diretório `./todo-back` :
+`bundle install && bundle exec rake db:seed && bundle exec rails s -p 3001`
+
+## Build React Front:
+No escopo do diretório `./todo-front` :
+`yarn install && yarn start`
+
+## Execução da Rake Task:
+`bundle exec rake csv:export`
 
 Quando um usuário **marcar** uma tarefa como completa:
 * O sistema exibe para o usuário uma bela frase aleatória de "Parabéns" (invente qualquer 5 frases aleatórias) de uma cor hexadecimal aleatória dessa lista [#7B68EE, #6A5ACD, #800000, #2F4F4F].

@@ -41,12 +41,20 @@ class TodoForm extends Component {
 	    return (
 	      <div className="tile">
 	        <form onBlur={this.handleBlur}>
-	          <input 
+			<input 
 	            className='input' 
 	            type="text"
 	            name="title" 
 	            placeholder='Enter a Title'
 	            value={this.state.title}
+	            onChange={this.handleInput} 
+	        	ref={this.props.titleRef} />
+			<input 
+	            className='input'
+	            type="text"
+	            name="username"
+	            placeholder='Enter an username...'
+	            value={this.state.username}
 	            onChange={this.handleInput} 
 	        	ref={this.props.titleRef} />
               <label>

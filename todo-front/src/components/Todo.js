@@ -18,6 +18,12 @@ class Todo extends Component {
 	        <h4 onClick={this.handleClick}>
 	          {this.props.todo.title}
 	        </h4>
+			<h4 onClick={this.handleClick}>
+	          {this.props.todo.username}
+	        </h4>
+			<h4 onClick={this.handleClick}>
+	          {this.props.todo.status}
+	        </h4>
 	        <p onClick={this.handleClick}>
 	          {this.props.todo.description}
 	        </p>
