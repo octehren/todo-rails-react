@@ -33,29 +33,33 @@ class TodosContainer extends Component {
 	render() {
 		return (
 			<div>
-                <span className={this.state.alertClass}>
-				  <p style={{textColor: this.state.notificationColor}}>{this.state.notificationMessage}</p>
-				</span>
+				<div className="row">
+					<span className={this.state.alertClass}  style={{textColor: this.state.notificationColor}} >
+						{this.state.notificationMessage}
+					</span>
+				</div>
                 <div className="row">
                     <button className="btn btn-info"
                     onClick={this.addNewTodo} >
                         New To-do
                     </button>
                 </div>
-				{	this.state.todos.map((todo) => {
-						if (this.state.editingTodoId === todo.id) {
-							return (<TodoForm todo={todo} key={todo.id} 
-								updateTodo={this.updateTodo} 
-								titleRef={input => this.title = input}/>
-                            )
-						} else {
-							return (<Todo todo={todo} key={todo.id} 
-								onClick={this.enableEditing} 
-								onDelete={this.deleteTodo} />
-							);
-						}
-					})
-				}
+				<div className="mx-auto my-auto">
+					{	this.state.todos.map((todo) => {
+							if (this.state.editingTodoId === todo.id) {
+								return (<TodoForm todo={todo} key={todo.id} 
+									updateTodo={this.updateTodo} 
+									titleRef={input => this.title = input}/>
+								)
+							} else {
+								return (<Todo todo={todo} key={todo.id} 
+									onClick={this.enableEditing} 
+									onDelete={this.deleteTodo} />
+								);
+							}
+						})
+					}
+				</div>
 			</div>
 		)
 
