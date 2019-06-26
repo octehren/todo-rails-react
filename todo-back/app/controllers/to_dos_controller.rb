@@ -5,22 +5,30 @@ class ToDosController < ApplicationController
     end
 
     def create
-        todo = ToDo.create(todo_params)
-        render json: todo
+        result = CreateToDo.call(todo_params: todo_params)
+        if result.success?
+            render json: result.todo
+        else
+            render json: result.errors
+        end
     end
 
     def update
-        todo = ToDo.find(params[:id])
-        todo.update_attributes(todo_params)
-        render json: { todo: todo, event: todo.event }
+        result = UpdateToDo.call(id: params[:id], todo_params: todo_params)
+        if result.success?
+            another_result = SendNotificationData.call(todo: result.todo, changed_status: result.changed_status)
+            render json: another_result.notification_data
+        else
+            render json: result.errors
+        end
     end
 
     def destroy
-        todo = ToDo.find(params[:id])
-        if todo.destroy
+        result = DestroyToDo(params[:id])
+        if result.success?
             head(:no_content, status: :ok)
         else
-            render json: todo.errors
+            render json: result.errors
         end
     end
 
