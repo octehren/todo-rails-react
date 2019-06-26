@@ -1,14 +1,18 @@
 ## Build Rails API:
 
 No escopo do diretório `./todo-back` :
-`bundle install && bundle exec rake db:seed && bundle exec rails s -p 3001`
+
+`bundle install && bundle exec rake db:reset && bundle exec rails s -p 3001`
 
 ## Build React Front:
 No escopo do diretório `./todo-front` :
+
 `yarn install && yarn start`
 
 ## Execução da Rake Task:
 `bundle exec rake csv:export`
+
+## Instruções originais:
 
 Quando um usuário **marcar** uma tarefa como completa:
 * O sistema exibe para o usuário uma bela frase aleatória de "Parabéns" (invente qualquer 5 frases aleatórias) de uma cor hexadecimal aleatória dessa lista [#7B68EE, #6A5ACD, #800000, #2F4F4F].
