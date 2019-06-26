@@ -19,7 +19,9 @@ class TodoForm extends Component {
   	handleBlur = () => {
   		const todo = {
   			title: this.state.title,
-  			description: this.state.description
+			description: this.state.description,
+			username: this.state.username,
+			status: this.state.status
   		}
   		axios.put(
   			`http://localhost:3001/${this.props.todo.id}`,
@@ -49,32 +51,32 @@ class TodoForm extends Component {
 	        	ref={this.props.titleRef} />
               <label>
                 <input
-                type="radio"
-                name="status"
-				value="unfinished"
-				defaultChecked={this.state.status === "unfinished"}
-                className="radio-inline"
-                />
+					type="radio"
+					name="status"
+					value="unfinished"
+					defaultChecked={this.state.status === "unfinished"}
+					onChange={this.handleInput} 
+					className="radio-inline" />
                 Working on...
               </label>
 			  <label>
                 <input
-                type="radio"
-                name="status"
-				value="done"
-				defaultChecked={this.state.status === "done"}
-                className="radio-inline"
-                />
+					type="radio"
+					name="status"
+					value="done"
+					defaultChecked={this.state.status === "done"}
+					onChange={this.handleInput} 
+					className="radio-inline" />
                 Done!
               </label>
 			  <label>
                 <input
-                type="radio"
-                name="status"
-				value="undone"
-				defaultChecked={this.state.status === "undone"}
-                className="radio-inline"
-                />
+					type="radio"
+					name="status"
+					value="undone"
+					defaultChecked={this.state.status === "undone"}
+					onChange={this.handleInput} 
+					className="radio-inline" />
                 Fail!
               </label>
 	          <textarea 
