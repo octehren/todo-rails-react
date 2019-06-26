@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   describe "Proper event generation after to-do update:" do
-    before(:all) do
+    before(:each) do
       @todo = build(:to_do)
     end
 
     it "to-do generates 'congratulations' event type after being saved with 'done' status" do
-      @todo.status = :done
-      @todo.save
+      @todo.update_attributes(status: :done)
       expect(@todo.event.kind.to_sym).to eq :congratulations
     end
 
     it "'congratulations' event type has a success message" do
+      @todo.update_attributes(status: :done)
       success_messages = [
             "Daora po",
             "Aeeee kkkkkjjj",
@@ -24,21 +24,19 @@ RSpec.describe Event, type: :model do
     end
 
     it "to-do generates 'shame' event type after being saved with 'undone' status" do
-      @todo.status = :undone
-      @todo.save
+      @todo.update_attributes(status: :undone)
       expect(@todo.event.kind.to_sym).to eq :shame
     end
 
     it "deletes past event once new status is assigned" do
-      @todo.status = :done
-      @todo.save
+      @todo.update_attributes(status: :done)
       expect(Event.all.size).to eq 1
-      @todo.status = :undone
-      @todo.save
+      @todo.update_attributes(status: :undone)
       expect(Event.all.size).to eq 1
     end
 
     it "'shame' event type has a failure message" do
+      @todo.update_attributes(status: :undone)
       failure_messages = [
             "Affff...",
             "Pooo bixo...",
