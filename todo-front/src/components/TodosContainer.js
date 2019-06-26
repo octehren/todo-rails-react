@@ -111,7 +111,7 @@ class TodosContainer extends Component {
 	}
 
 	deleteTodo = (id) => {
-	    axios.delete(`http://localhost:3001/todos/${id}`)
+	    axios.delete(`http://localhost:3001/${id}`)
 	    .then(response => {
 	      const todoIndex = this.state.todos.findIndex(x => x.id === id);
 	      const todos = update(this.state.todos, { $splice: [[todoIndex, 1]]});

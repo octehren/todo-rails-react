@@ -24,7 +24,7 @@ class ToDosController < ApplicationController
     end
 
     def destroy
-        result = DestroyToDo(params[:id])
+        result = DestroyToDo.call(id: params[:id])
         if result.success?
             head(:no_content, status: :ok)
         else
