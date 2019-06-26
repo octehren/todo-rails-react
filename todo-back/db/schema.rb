@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_214014) do
+ActiveRecord::Schema.define(version: 2019_06_25_185645) do
+
+  create_table "events", force: :cascade do |t|
+    t.integer "kind"
+    t.string "message"
+    t.string "color"
+    t.integer "to_do_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["to_do_id"], name: "index_events_on_to_do_id"
+  end
 
   create_table "to_dos", force: :cascade do |t|
     t.string "title", default: "", null: false
@@ -18,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_214014) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username", default: "unknown", null: false
   end
 
 end
