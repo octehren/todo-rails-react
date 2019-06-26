@@ -92,6 +92,7 @@ class TodosContainer extends Component {
 		});
 		this.setState({
 			todos: todos,
+			defaultUsername: todo.username,
 			notification: 'All changes saved!'
 		});
 		this.resetNotification(); // clears notification after 3 seconds;
