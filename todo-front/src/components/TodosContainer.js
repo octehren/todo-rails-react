@@ -13,7 +13,8 @@ class TodosContainer extends Component {
         	editingTodoId: null,
             notificationMessage: '',
             notificationColor: '',
-            alertClass: 'alert '
+			alertClass: 'alert ',
+			defaultUsername: ''
     	}
     }
 
@@ -22,6 +23,7 @@ class TodosContainer extends Component {
 		.then(response => {
 			console.log(response);
 			this.setState({ todos: response.data });
+			this.setState({ defaultUsername: this.state.todos[0].username })
 		})
 		.catch(function(error) {
 			console.log(error);
@@ -64,7 +66,9 @@ class TodosContainer extends Component {
 	    { todo:
 	      {
 	        title: '',
-	        description: ''
+			description: '',
+			status: 'unfinished',
+			username: this.state.defaultUsername
 	      }
 	    }
 	  )

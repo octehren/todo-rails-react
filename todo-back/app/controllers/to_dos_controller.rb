@@ -1,6 +1,6 @@
 class ToDosController < ApplicationController
     def index
-        todos = ToDo.all
+        todos = ToDo.order('created_at DESC')
         render json: todos
     end
 
@@ -13,6 +13,6 @@ class ToDosController < ApplicationController
     end
 
     def destroy
-        
+
     end
 end
