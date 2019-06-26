@@ -37,7 +37,7 @@ class TodosContainer extends Component {
                 <div className="row">
                     <button className="btn btn-info"
                     onClick={this.addNewTodo} >
-                        New Todo
+                        New To-do
                     </button>
                 </div>
 				{	this.state.todos.map((todo) => {

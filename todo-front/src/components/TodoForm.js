@@ -6,7 +6,9 @@ class TodoForm extends Component {
 	    super(props);
 	    this.state = {
 	    	title: this.props.todo.title,
-	    	description: this.props.todo.description
+            description: this.props.todo.description,
+            username: this.props.todo.username,
+            status: this.props.todo.status
 	    }
   	}
 
@@ -20,7 +22,7 @@ class TodoForm extends Component {
   			description: this.state.description
   		}
   		axios.put(
-  			`http://localhost:3001/api/v1/todos/${this.props.todo.id}`,
+  			`http://localhost:3001/${this.props.todo.id}`,
   			{ 
   				todo: todo
   		})
@@ -45,6 +47,36 @@ class TodoForm extends Component {
 	            value={this.state.title}
 	            onChange={this.handleInput} 
 	        	ref={this.props.titleRef} />
+              <label>
+                <input
+                type="radio"
+                name="status"
+				value="unfinished"
+				checked={this.state.status === "unfinished"}
+                className="form-check-input"
+                />
+                Working on...
+              </label>
+			  <label>
+                <input
+                type="radio"
+                name="status"
+				value="done"
+				checked={this.state.status === "done"}
+                className="form-check-input"
+                />
+                Done!
+              </label>
+			  <label>
+                <input
+                type="radio"
+                name="status"
+				value="undone"
+				checked={this.state.status === "undone"}
+                className="form-check-input"
+                />
+                Fail!
+              </label>
 	          <textarea 
 	            className='input' 
 	            name="description"
