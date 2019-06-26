@@ -13,7 +13,7 @@ class Todo extends Component {
 	    return(
 	      <div className="tile">
 		    <span className="deleteButton" onClick={this.handleDelete}>
-			  x
+			  X
 			</span>
 	        <h4 onClick={this.handleClick}>
 	          {this.props.todo.title}
