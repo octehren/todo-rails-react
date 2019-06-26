@@ -34,7 +34,7 @@ class TodosContainer extends Component {
 		return (
 			<div>
                 <span className={this.state.alertClass}>
-				  {this.state.notification}
+				  <p style={{textColor: this.state.notificationColor}}>{this.state.notificationMessage}</p>
 				</span>
                 <div className="row">
                     <button className="btn btn-info"
@@ -85,16 +85,24 @@ class TodosContainer extends Component {
 	  .catch(function(error) { console.log(error); } );
 	}
 
-	updateTodo = (todo) => {
+	updateTodo = (todo, notification) => {
 		const todoIndex = this.state.todos.findIndex(x => x.id === todo.id);
 		const todos = update(this.state.todos, {
 			[todoIndex]: {$set: todo}
 		});
-		this.setState({
-			todos: todos,
-			defaultUsername: todo.username,
-			notification: 'All changes saved!'
-		});
+		let newState = { todos: todos, defaultUsername: todo.username }
+		if (notification != undefined) {
+			newState.notificationMessage = notification.message;
+			newState.notificationColor = notification.color;
+			if (notification.kind === "congratulations") {
+				newState.alertClass = "alert alert-success";
+			} else {
+				newState.alertClass = "alert alert-warning";
+			}
+		} else {
+			newState.notificationMessage = "All changes saved!";
+		}
+		this.setState(newState);
 		this.resetNotification(); // clears notification after 3 seconds;
 	}
 

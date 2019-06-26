@@ -12,7 +12,7 @@ class ToDosController < ApplicationController
     def update
         todo = ToDo.find(params[:id])
         todo.update_attributes(todo_params)
-        render json: todo
+        render json: { todo: todo, event: todo.event }
     end
 
     def destroy

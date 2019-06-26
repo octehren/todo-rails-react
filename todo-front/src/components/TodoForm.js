@@ -30,7 +30,7 @@ class TodoForm extends Component {
   		})
   		.then(response => {
   			console.log(response);
-  			this.props.updateTodo(response.data); // triggers updateTodo function in TodosContainer component with the updated todo as its argument
+  			this.props.updateTodo(response.data.todo, response.data.event); // triggers updateTodo function in TodosContainer component with the updated todo as its argument
   		})
   		.catch(function(error) {
   			console.log(error);
