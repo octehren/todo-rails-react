@@ -31,13 +31,15 @@ class TodosContainer extends Component {
 	render() {
 		return (
 			<div>
-				<button className="btn btn-info"
-				onClick={this.addNewTodo} >
-					New Todo
-				</button>
-				<span className={this.state.alertClass}>
+                <span className={this.state.alertClass}>
 				  {this.state.notification}
 				</span>
+                <div className="row">
+                    <button className="btn btn-info"
+                    onClick={this.addNewTodo} >
+                        New Todo
+                    </button>
+                </div>
 				{	this.state.todos.map((todo) => {
 						if (this.state.editingTodoId === todo.id) {
 							return (<TodoForm todo={todo} key={todo.id} 
