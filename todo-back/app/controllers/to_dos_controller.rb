@@ -15,4 +15,10 @@ class ToDosController < ApplicationController
     def destroy
 
     end
+
+    private
+
+    def todo_params
+
+    end
 end
