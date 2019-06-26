@@ -14,3 +14,11 @@
 #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
 #   end
 # end
+
+# Allows for any requests. Unadvisable for production environments.
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+    end
+end
