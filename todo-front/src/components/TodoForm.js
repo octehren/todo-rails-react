@@ -52,8 +52,8 @@ class TodoForm extends Component {
                 type="radio"
                 name="status"
 				value="unfinished"
-				checked={this.state.status === "unfinished"}
-                className="form-check-input"
+				defaultChecked={this.state.status === "unfinished"}
+                className="radio-inline"
                 />
                 Working on...
               </label>
@@ -62,8 +62,8 @@ class TodoForm extends Component {
                 type="radio"
                 name="status"
 				value="done"
-				checked={this.state.status === "done"}
-                className="form-check-input"
+				defaultChecked={this.state.status === "done"}
+                className="radio-inline"
                 />
                 Done!
               </label>
@@ -72,8 +72,8 @@ class TodoForm extends Component {
                 type="radio"
                 name="status"
 				value="undone"
-				checked={this.state.status === "undone"}
-                className="form-check-input"
+				defaultChecked={this.state.status === "undone"}
+                className="radio-inline"
                 />
                 Fail!
               </label>
